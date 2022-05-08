@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        vector<int> temp(nums.size(),0);
+        for(auto i : nums){
+            if(temp[i] == 0){
+                temp[i] = 1;
+            }
+            else{
+                return i;
+            }
+        }
+        return 0;
+    }
+};
