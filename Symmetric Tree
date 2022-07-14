@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool solve(TreeNode* l, TreeNode* r){
+        if(l == nullptr && r == nullptr)
+            return true;
+        if(l == nullptr && r != nullptr || l!= nullptr && r== nullptr)
+            return false;
+        
+        if(l->val == r->val)
+            return solve(l->left, r->right) && solve(l->right, r->left);
+        else
+            return false;
+    }
+    bool isSymmetric(TreeNode* root) {
+        return solve(root->left,root->right);
+    }
+};
